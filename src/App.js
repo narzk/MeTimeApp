@@ -1,24 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+
+import CategoryPage from "./components/pages/CategoryPage";
+import StartPage from "./components/pages/StartPage";
+import ChangeMoodPage from "./components/pages/ChangeMoodPage";
 
 function App() {
+  const [value, setValue] = useState("");
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route
+          path="/"
+          element={<StartPage handleName={(name) => setValue(name)} />}
+        />
+        <Route path="/category" element={<CategoryPage name={value} />} />
+        <Route path="/category/:mood" element={<ChangeMoodPage />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
