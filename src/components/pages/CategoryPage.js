@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Container, Text } from "./StartPage";
+import { Container } from "./StartPage";
 import angry from "../../assets/angry.png";
 import happy from "../../assets/happy.png";
 import lonely from "../../assets/lonely.png";
@@ -14,20 +14,20 @@ const MoodRow = styled.div`
 
 const MoodBox = styled.div`
   display: flex;
-  width: 158px;
-  height: 161px;
+  max-width: 158px;
+  max-height: 161px;
   background: ${(props) => props.color};
   border-radius: 24px;
   padding: 32px;
   box-sizing: border-box;
+  margin-bottom: 24px;
   & + & {
     margin-left: 24px;
-    margin-bottom: 24px;
   }
 `;
 const Img = styled.img`
-  width: 95px;
-  height: 95px;
+  max-width: 50px;
+  max-height: 50px;
 `;
 export const Title = styled.div`
   font-weight: bold;

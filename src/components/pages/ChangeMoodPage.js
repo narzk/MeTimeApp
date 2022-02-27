@@ -14,39 +14,39 @@ import { useNavigate } from "react-router-dom";
 const categoryObject = [
   {
     name: "angry",
-    value: <Angry width="198px" height="364px" />,
+    value: <Angry />,
     text: "Accept and embrace all experiences!",
-    url: " https://www.learningcontainer.com/wp-content/uploads/2020/02/Kalimba.mp3",
+    url: " https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3",
   },
   {
     name: "happy",
-    value: <Happy width="198px" height="364px" />,
+    value: <Happy />,
     text: "Think big, live simply!",
-    url: " https://www.learningcontainer.com/wp-content/uploads/2020/02/Kalimba.mp3",
+    url: " https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3",
   },
   {
     name: "lonely",
-    value: <Lonely width="198px" height="364px" />,
+    value: <Lonely />,
     text: "Because You Can!",
-    url: " https://www.learningcontainer.com/wp-content/uploads/2020/02/Kalimba.mp3",
+    url: " https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3",
   },
   {
     name: "nervous",
-    value: <Nervous width="198px" height="364px" />,
+    value: <Nervous />,
     text: "Continuous improvement is better than delayed perfection!",
-    url: " https://www.learningcontainer.com/wp-content/uploads/2020/02/Kalimba.mp3",
+    url: " https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3",
   },
   {
     name: "sad",
-    value: <Sad width="198px" height="364px" />,
+    value: <Sad />,
     text: "It always seems impossible until it's done!",
-    url: " https://www.learningcontainer.com/wp-content/uploads/2020/02/Kalimba.mp3",
+    url: " https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3",
   },
   {
     name: "tired",
-    value: <Tired width="198px" height="364px" />,
+    value: <Tired />,
     text: "Run Your Own Race!",
-    url: " https://www.learningcontainer.com/wp-content/uploads/2020/02/Kalimba.mp3",
+    url: " https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3",
   },
 ];
 const ContainerBox = styled.div`
@@ -67,7 +67,7 @@ const PhotoContainer = styled.div`
   width: 35%;
   text-align: center;
   border-radius: 100%;
-  padding: 30px;
+  padding: 10%;
 `;
 const PlayButton = styled.button`
   background: #ffccb4;
@@ -108,11 +108,14 @@ const Back = styled.div`
 `;
 function ButtonSong({ url }) {
   const [start, setStart] = useState(false);
-  const audio = new Audio(url);
+  const [audio] = useState(new Audio(url));
 
   const handleSound = () => {
+    // const audio = new Audio(url);
+    // audio.play();
+    console.log("888");
     setStart(!start);
-    start ? audio.play() : audio.pause();
+    !start ? audio.play() : audio.pause();
   };
 
   return (
